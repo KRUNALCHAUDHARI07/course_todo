@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Bootstrap CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+    <!-- <link rel='stylesheet' href='/stylesheets/style.css' /> -->
+
+    <!-- JavaScript Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
+    <title>Edit Courses</title>
+</head>
+<body>
+    <div class="m-3">
+        <h2>Edit Courses</h2>
+        <form action="/editcourse/<%= course[0]._id %>" method="post">
+            <div class="mb-3">
+                <label for="CourseNmae" class="form-label">Course Name</label>
+                <input type="text" class="form-control" id="name" value="<%= course[0].name %>" name="name" placeholder="enter course name" required>
+            </div>
+            
+            <div class="mb-3">
+                <label for="CourseDuration" class="form-label">Course DUration</label>
+                <input type="text" class="form-control" id="duration" name="duration" value="<%= course[0].duration %>" placeholder="enter course duration" required>
+            </div>
+
+            <div class="mb-3">
+                <label for="CoursePrice" class="form-label">Course Price</label>
+                <input type="text" class="form-control" id="price" name="fees" value="<%= course[0].fees %>" placeholder="enter course price" required>
+            </div>
+
+            <div class="col-auto">
+                <button type="submit" class="btn btn-primary mb-3">Submit</button>
+            </div>
+        </form>
+    </div>
+</body>
+</html>
