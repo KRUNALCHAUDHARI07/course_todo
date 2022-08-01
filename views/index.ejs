@@ -17,7 +17,7 @@
         <p>Welcome to <%= title %></p>
       </div>
       <div class="col">
-        <form action="/addcoursepage">
+        <form action="/addcoursepage/1">
             <button type="submit" class="btn btn-success">Add Cources</button>          
         </form>
       </div>
@@ -50,7 +50,7 @@
               <td class="pt-3"><%= course[i].duration %></td>
               <td class="pt-3"><%= course[i].fees %></td>
               <td>
-              <form action="/editcourse/<%= course[i]._id %>">
+              <form action="/addcoursepage/<%= course[i]._id %>">
                 <button type="submit" class="btn btn-warning">Edit</button>          
               </form>
               

@@ -33,8 +33,11 @@ router.get('/', async(req, res, next) => {
   res.render('index', { title: 'Esite Courses', course: courses });
 });
 
-router.get("/addcoursepage", async(req,res) => {
+router.get("/addcoursepage/:id", async(req,res) => {
   const id = req.params.id;
+  if (!id) {
+    id = 1;
+  }
   let data;
   let action;
   if(id != 1){
@@ -47,6 +50,13 @@ router.get("/addcoursepage", async(req,res) => {
   res.render('addCorse', { action: action, data:data});
 });
 
+router.get("/editcourse/:id", async(req,res) => {
+  const id = req.params.id
+  const courseData = await CourseModel.find({_id: id});
+  // console.log(courseData);
+  res.render("edit1Corses", {course: courseData} )
+})
+
 router.get("/deletecourse/:id",async(req,res) => {
   const id = req.params.id;
   // console.log(id);
@@ -55,12 +65,6 @@ router.get("/deletecourse/:id",async(req,res) => {
 });
 
 
-router.get("/editcourse/:id", async(req,res) => {
-  const id = req.params.id
-  const courseData = await CourseModel.find({_id: id});
-  // console.log(courseData);
-  res.render("edit1Corses", {course: courseData} )
-})
 
 
 
